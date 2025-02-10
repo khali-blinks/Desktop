@@ -13,3 +13,7 @@ function App(){
 }
 
 export default App;
+
+const stateArray = useState(initialValue);
+const state = stateArray[0];
+const setState = stateArray[1];
