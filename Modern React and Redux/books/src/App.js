@@ -15,7 +15,8 @@ function App(){
         fetchBooks();
     }, []);
 
-    const editBookById = (id, newTitle) => {
+    const editBookById = async (id, newTitle) => {
+        const response = await axios.put(`http://localhost:3001/books/${id}`,{title : newTitle})
         const updatedBooks = books.map((book) => {
             if(book.id === id){
                 return {...book,title:newTitle};
@@ -34,7 +35,6 @@ function App(){
 
     const createBook = async(title) => {
         const response = await axios.post('http://localhost:3001/books',{title});
-        console.log(response);
         const updatedBooks = [ ...books,response.data];
         setBooks(updatedBooks);
     }
@@ -47,3 +47,5 @@ function App(){
 }
 
 export default App;
+
+dsdsfdsfsdfdsgafgsdfdsaf
