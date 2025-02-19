@@ -14,7 +14,11 @@ root.render(<Provider><App/></Provider>);
 function App() {
     const [counter, setCounter] = useState(0);
   
-
+    useEffect(() => {
+        document.body.onClick = () => {
+          console.log(counter);
+        };
+      }, []);
   
     return (
       <div>
