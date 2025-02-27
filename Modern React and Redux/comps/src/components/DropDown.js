@@ -36,11 +36,7 @@ export default Dropdown;
 const dropdown = document.querySelector('wr');
 
 const handleClick = (event) => {
-    if (dropdown.contains(event.target)){
-        console.log('Inside dropdown');
-    } else{
-        console.log('Outside dropdown')
-    }
+
 }
 
 document.addEventListener('click',handleClick,true);
