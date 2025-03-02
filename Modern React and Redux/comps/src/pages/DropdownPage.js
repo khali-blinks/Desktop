@@ -17,3 +17,7 @@ function DropdownPage() {
 }
 
 export default DropdownPage;
+
+function App() {
+    return <div></div>
+}
