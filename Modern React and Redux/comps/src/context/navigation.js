@@ -1,14 +1,16 @@
-import { Children, createContext } from "react";
+import { useState, createContext } from "react";
 
 const NavigationContext = createContext();
 
 function NavigationProvider(children){
+    const [currentPath, setCurrentPath] = useState(window.location.pathname);
     return (
         <NavigationContext.Provider value={{}}>
-            {Children}
+            {children}
         </NavigationContext.Provider>
     )
 
 };
 
+export {NavigationProvider};
 export default NavigationContext;
