@@ -3,11 +3,3 @@ function Modal(){
 }
 
 export default Modal;
-//dfsdfsdfsdffdfdg
-//dfsdfsdfsdffdfdg
-//dfsdfsdfsdffdfdg
-//dfsdfsdfsdffdfdg
-//dfsdfsdfsdffdfdg
-//dfsdfsdfsdffdfdg
-//dfsdfsdfsdffdfdg
-//dfsdfsdfsdffdfdg
