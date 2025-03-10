@@ -40,12 +40,12 @@ const data = [
 ];
 
 function getSortValue(vegetable){
-    return vegetable.cost;
+    return vegetable.weight;
 }
 
 data.sort((a,b) => {
     const valueA = getSortValue(a);
     const valueB = getSortValue(b);
 
-    return valueA - valueB
+    return valueB - valueA
 })
