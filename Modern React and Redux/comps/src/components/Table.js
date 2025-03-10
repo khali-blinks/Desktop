@@ -39,3 +39,10 @@ const data = [
     { name: 'Onion', cost: 5, weight: 7},
 ];
 
+function getSortValue(vegetable){
+    return vegetable.cost;
+}
+
+data.sort((a,b) => {
+    co
+})
