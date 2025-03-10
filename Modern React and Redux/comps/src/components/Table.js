@@ -44,5 +44,8 @@ function getSortValue(vegetable){
 }
 
 data.sort((a,b) => {
-    co
+    const valueA = getSortValue(a);
+    const valueB = getSortValue(b);
+
+    return valueA - valueB
 })
