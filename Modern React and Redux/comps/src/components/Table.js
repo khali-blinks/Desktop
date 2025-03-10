@@ -40,12 +40,12 @@ const data = [
 ];
 
 function getSortValue(vegetable){
-    return vegetable.weight;
+    return vegetable.name;
 }
 
 data.sort((a,b) => {
     const valueA = getSortValue(a);
     const valueB = getSortValue(b);
 
-    return valueB - valueA
+    return valueA.localeCompare(valueB)
 })
