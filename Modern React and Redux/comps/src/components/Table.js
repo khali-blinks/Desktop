@@ -1,16 +1,18 @@
-function Table({data, config}){
+function Table({data, config, keyFn}){
     const renderedHeaders = config.map((column) => {
         return (<th key={column.label}>{column.label}</th>)
     });
 
-    const renderedRows = data.map((fruit) => {
+    const renderedRows = data.map((rowData) => {
+        const renderedCells = config.map((column) => {
+            return (
+                <td className="p-2" key={column.label}>{column.render(rowData)}</td>
+            );
+        });
+
         return (
-            <tr className="border-b" key={fruit.name}>
-                <td className="p-3">{config[0].render(fruit)}</td>
-                <td className="p-3">
-                    {config[1].render(fruit)}
-                </td>
-                <td className="p-3">{config[2].render(fruit)}</td>
+            <tr className="border-b" key={keyFn(rowData)}>
+                {renderedCells}
             </tr>
         );
     });
@@ -30,3 +32,10 @@ function Table({data, config}){
 };
 
 export default Table;
+
+const data = [
+    { name: 'Tomato', cost: 10, weight: 5},
+    { name: 'Carrot', cost: 15, weight: 2},
+    { name: 'Onion', cost: 5, weight: 7},
+];
+
