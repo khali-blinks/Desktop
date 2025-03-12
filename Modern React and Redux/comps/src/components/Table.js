@@ -1,5 +1,10 @@
+import { Fragment } from 'react';
+
 function Table({data, config, keyFn}){
     const renderedHeaders = config.map((column) => {
+        if (column.header){
+            return <Fragment key={column.label}>{column.header()}</Fragment>;
+        }
         return (<th key={column.label}>{column.label}</th>)
     });
 
@@ -33,19 +38,5 @@ function Table({data, config, keyFn}){
 
 export default Table;
 
-const data = [
-    { name: 'Tomato', cost: 10, weight: 5},
-    { name: 'Carrot', cost: 15, weight: 2},
-    { name: 'Onion', cost: 5, weight: 7},
-];
+// Reference
 
-function getSortValue(vegetable){
-    return vegetable.name;
-}
-
-data.sort((a,b) => {
-    const valueA = getSortValue(a);
-    const valueB = getSortValue(b);
-
-    return valueA.localeCompare(valueB)
-})
