@@ -3,7 +3,7 @@ import Table from "./Table";
 
 function SortableTable(props){
     const [sortOrder, setSortOrder] = useState(null);
-    const [sortBY, setSortBy] = useState(null);
+    const [sortBy, setSortBy] = useState(null);
     const { config, data } = props;
 
     const handleClick = (label) => {
@@ -33,7 +33,10 @@ function SortableTable(props){
     // Only sort data if sortOrder && sortBy are not null
     // Then make a copy of the 'data' prop
     // Find the correct sortValue function and use it for sorting
-    
+    let sortedData = data;
+    if (sortOrder && sortBy){
+        
+    }
     return <Table {...props} config={updatedConfig}/>
 }
 
