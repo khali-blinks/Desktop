@@ -26,7 +26,7 @@ function SortableTable(props){
 
         return {
             ...column,
-            header : () => <th onClick={()=> handleClick(column.label)}>{column.label} is sort</th>
+            header : () => <th onClick={()=> handleClick(column.label)}>{getIcons()} {column.label}</th>
         }
     })
 
@@ -39,9 +39,20 @@ function SortableTable(props){
         sortedData = [...data].sort((a,b) => {
             const valueA = sortValue(a);
             const valueB = sortValue(b);
+
+            const reverseOrder = sortOrder === 'asc'? 1 : -1;
+
+            if (typeof valueA === 'string'){
+                return valueA.localeCompare(valueB) * reverseOrder;
+            } else {
+                return (valueA - valueB) * reverseOrder;
+            }
         })
     }
-    return <Table {...props} config={updatedConfig}/>
+    return (<div>
+        {sortOrder} - {sortBy}
+        <Table {...props} data={sortedData} config={updatedConfig}/>
+    </div>)
 }
 
 export default SortableTable;
