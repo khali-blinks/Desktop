@@ -1,23 +1,10 @@
-import { useState } from "react";
 import Table from "./Table";
+import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
+import useSort from "../hooks/use-sort";
 
 function SortableTable(props){
-    const [sortOrder, setSortOrder] = useState(null);
-    const [sortBy, setSortBy] = useState(null);
     const { config, data } = props;
-
-    const handleClick = (label) => {
-        if (sortOrder === null){
-            setSortOrder('asc');
-            setSortBy(label);
-        } else if (sortOrder === 'asc'){
-            setSortOrder('desc');
-            setSortBy(label);
-        } else if (sortOrder === 'desc'){
-            setSortOrder(null);
-            setSortBy(null);
-        }
-    }
+    const {sortOrder,sortBy,sortedData,setSetColumn} = useSort(data,config);
 
     const updatedConfig = config.map((column) => {
         if (!column.sortValue){
@@ -26,50 +13,44 @@ function SortableTable(props){
 
         return {
             ...column,
-            header : () => <th onClick={()=> handleClick(column.label)}>
-                    {getIcons(column.label,sortBy,sortOrder)} 
-                    {column.label}
-                </th>
+            header : () => (
+                <th className="cursor-pointer hover:bg-gray-100"
+                    onClick={()=> setSetColumn(column.label)}>
+                    <div className="flex items-center">
+                        {getIcons(column.label,sortBy,sortOrder)} 
+                        {column.label}
+                    </div>
+                </th>)
         }
     })
 
-    // Only sort data if sortOrder && sortBy are not null
-    // Then make a copy of the 'data' prop
-    // Find the correct sortValue function and use it for sorting
-    let sortedData = data;
-    if (sortOrder && sortBy){
-        const { sortValue } = config.find((column) => column.label === sortBy);
-        sortedData = [...data].sort((a,b) => {
-            const valueA = sortValue(a);
-            const valueB = sortValue(b);
 
-            const reverseOrder = sortOrder === 'asc'? 1 : -1;
-
-            if (typeof valueA === 'string'){
-                return valueA.localeCompare(valueB) * reverseOrder;
-            } else {
-                return (valueA - valueB) * reverseOrder;
-            }
-        })
-    }
-    return (<div>
-        {sortOrder} - {sortBy}
-        <Table {...props} data={sortedData} config={updatedConfig}/>
-    </div>)
+    return <Table {...props} data={sortedData} config={updatedConfig}/>
 }
 
 function getIcons(label,sortBy,sortOrder){
     if (label !== sortBy){
-        return 'Show both icons';
+        return <div>
+            <GoTriangleUp/>
+            <GoTriangleDown/>
+        </div>
     }
     if (sortOrder === null){
-        return 'show both icons';
+        return <div>
+            <GoTriangleUp/>
+            <GoTriangleDown/>
+        </div>
     } else if (sortOrder === 'asc'){
-        return 'show up icon'
+        return <div>
+            <GoTriangleUp/>
+        </div>
     } else if (sortOrder === 'desc'){
-        return 'show down icon'
+        return <div>
+            <GoTriangleDown/>
+        </div>
     }
 }
 
 export default SortableTable;
 
+//rtetreyerureiuytiuyt
