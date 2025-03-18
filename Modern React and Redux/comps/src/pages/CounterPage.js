@@ -36,7 +36,7 @@ function CounterPage({ initialCount}){
 
     return (
         <Panel className="m-3">
-            <h1 className="text-lg">Count is {count}</h1>
+            <h1 className="text-lg">Count is {state.count}</h1>
             <div className="flex flex-row">
                 <Button onClick={increment}>Increment</Button>
                 <Button onClick={decrement}>Decrement</Button>
@@ -44,7 +44,7 @@ function CounterPage({ initialCount}){
 
             <form onSubmit={handleSubmit}>
                 <label>Add a lot!</label>
-                <input value={valueToAdd || ''} 
+                <input value={state.valueToAdd || ''} 
                     onChange={handleChange} 
                     type="number" 
                     className="p-1 m-3 bg-gray-50 border border-gray-300">
