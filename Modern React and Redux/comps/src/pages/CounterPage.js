@@ -58,7 +58,3 @@ function CounterPage({ initialCount}){
 }
 
 export default CounterPage;
-    //jgjgjhgjg
-//jgjgjhgjg
-//jgjgjhgjg
-//llpkpolppop
