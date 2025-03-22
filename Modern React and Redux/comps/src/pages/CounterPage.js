@@ -18,7 +18,13 @@ const reducer = (state,action) => {
             return {
                 ...state,
                 count : state.count -1,
-            }    
+            } 
+        case ADD_VALUE_TO_COUNT:
+            return {
+                ...state,
+                count : state.count + state.valueToAdd,
+                valueToAdd : 0
+            }       
         case SET_VALUE_TO_ADD:
             return{
                 ...state,
@@ -59,8 +65,10 @@ function CounterPage({ initialCount}){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        //setCount(count + valueToAdd);
-        //setValueToAdd(0);
+        dispatch({
+            type : ADD_VALUE_TO_COUNT
+        })
+
     }
 
 
