@@ -4,6 +4,7 @@ import { useReducer } from "react";
 
 const INCREMENT_COUNT = 'increment';
 const SET_VALUE_TO_ADD = 'change-value-to-add';
+const DECREMENT_COUNT = 'decrement';
 
 const reducer = (state,action) => {
     switch(action.type){
@@ -12,6 +13,11 @@ const reducer = (state,action) => {
                 ...state,
                 count : state.count + 1,
             }
+        case DECREMENT_COUNT:
+            return {
+                ...state,
+                count : state.count -1,
+            }    
         case SET_VALUE_TO_ADD:
             return{
                 ...state,
@@ -38,7 +44,7 @@ function CounterPage({ initialCount}){
 
     const decrement = () => {
         dispatch({
-            type : 'decrement'
+            type : DECREMENT_COUNT
         })
     }
 
