@@ -3,10 +3,29 @@ import Panel from "../components/Panel";
 import { useReducer } from "react";
 
 const reducer = (state,action) => {
-    return {
-        ...state,
-        count : state.count + 1,
+    if (action.type === 'increment'){
+        return {
+            ...state,
+            count : state.count + 1,
+        }
     }
+
+    if (action.type === 'decrement'){
+        return {
+            ...state,
+            count : state.count - 1,
+        }
+    }
+
+    if (action.type === 'change-value-to-add'){
+        return{
+            ...state,
+            valueToAdd : action.payload
+        }
+    }
+
+    return state;
+
 }
 
 function CounterPage({ initialCount}){
@@ -18,16 +37,23 @@ function CounterPage({ initialCount}){
     })
 
     const increment = () => {
-        dispatch();
+        dispatch({
+            type : 'increment'
+        });
     }
 
     const decrement = () => {
-        //setCount(count - 1);
+        dispatch({
+            type : 'decrement'
+        })
     }
 
     const handleChange = (event) => {
         const value = parseInt(event.target.value) || 0;
-        //setValueToAdd(value);
+        dispatch({
+            type : 'change-value-to-add',
+            payload : value
+        })
     };
 
     const handleSubmit = (event) => {
