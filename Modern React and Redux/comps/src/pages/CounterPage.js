@@ -5,6 +5,7 @@ import { useReducer } from "react";
 const INCREMENT_COUNT = 'increment';
 const SET_VALUE_TO_ADD = 'change-value-to-add';
 const DECREMENT_COUNT = 'decrement';
+const ADD_VALUE_TO_COUNT = 'add_value_to_count';
 
 const reducer = (state,action) => {
     switch(action.type){
