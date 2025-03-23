@@ -111,4 +111,6 @@ const songsSlice = createSlice({
   const startingState = store.getState();
 console.log(JSON.stringify(startingState));
 
+store.dispatch(songsSlice.actions.addSong("NEW BANGA!"));
+
 
