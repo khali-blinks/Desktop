@@ -102,6 +102,11 @@ const songsSlice = createSlice({
     },
   },
 });
+const store = configureStore({
+    reducer: {
+      songs: songsSlice.reducer,
+    },
+  });
 
 
 
