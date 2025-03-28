@@ -87,7 +87,24 @@ function CounterPage({ initialCount}){
 
 export default CounterPage;
 
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
+const moviesSlice = createSlice({
+  name: "movie",
+  initialState: [],
+  reducers: {
+    addMovie(state, action) {
+      state.push(action.payload);
+    },
+    removeMovie(state, action) {
+      const index = state.indexOf(action.payload);
+      state.splice(index, 1);
+    },
+    reset(state, action) {
+      return [];
+    },
+  },
+});
 
 
 
