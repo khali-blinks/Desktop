@@ -58,20 +58,7 @@ function CounterPage({ initialCount}){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch({function MoviePlaylist() {
-            const dispatch = useDispatch();
-          
-            const moviePlaylist = useSelector((state) => {
-              return state.movies;
-            });
-          
-            const handleMovieAdd = (movie) => {
-              dispatch(addMovie(movie));
-            };
-            const handleMovieRemove = (movie) => {
-              dispatch(removeMovie(movie));
-            };
-          
+        dispatch({
             type : ADD_VALUE_TO_COUNT
         })
 
@@ -100,4 +87,17 @@ function CounterPage({ initialCount}){
 
 export default CounterPage;
 
-
+function MoviePlaylist() {
+    const dispatch = useDispatch();
+  
+    const moviePlaylist = useSelector((state) => {
+      return state.movies;
+    });
+  
+    const handleMovieAdd = (movie) => {
+      dispatch(addMovie(movie));
+    };
+    const handleMovieRemove = (movie) => {
+      dispatch(removeMovie(movie));
+    };
+  
