@@ -101,16 +101,3 @@ function MoviePlaylist() {
       dispatch(removeMovie(movie));
     };
   
-function MoviePlaylist() {
-  const dispatch = useDispatch();
-
-  const moviePlaylist = useSelector((state) => {
-    return state.movies;
-  });
-
-  const handleMovieAdd = (movie) => {
-    dispatch(addMovie(movie));
-  };
-  const handleMovieRemove = (movie) => {
-    dispatch(removeMovie(movie));
-  };
