@@ -58,7 +58,20 @@ function CounterPage({ initialCount}){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch({
+        dispatch({function MoviePlaylist() {
+            const dispatch = useDispatch();
+          
+            const moviePlaylist = useSelector((state) => {
+              return state.movies;
+            });
+          
+            const handleMovieAdd = (movie) => {
+              dispatch(addMovie(movie));
+            };
+            const handleMovieRemove = (movie) => {
+              dispatch(removeMovie(movie));
+            };
+          
             type : ADD_VALUE_TO_COUNT
         })
 
@@ -88,39 +101,3 @@ function CounterPage({ initialCount}){
 export default CounterPage;
 
 
-const songsSlice = createSlice({
-    name: "song",
-    initialState: [],
-    reducers: {
-      addSong(state, action) {
-        state.push(action.payload);
-      },
-      removeSong(state, action) {
-        const index = state.indexOf(action.payload);
-        state.splice(index, 1);
-      },
-    },
-    extraReducers(builder) {
-      builder.addCase(moviesSlice.actions.reset, (state, action) => {
-        return [];
-      });
-    },
-  });
-  const songsSlice = createSlice({
-    name: "song",
-    initialState: [],
-    reducers: {
-      addSong(state, action) {
-        state.push(action.payload);
-      },
-      removeSong(state, action) {
-        const index = state.indexOf(action.payload);
-        state.splice(index, 1);
-      },
-    },
-    extraReducers(builder) {
-      builder.addCase(moviesSlice.actions.reset, (state, action) => {
-        return [];
-      });
-    },
-  });
