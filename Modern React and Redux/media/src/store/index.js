@@ -7,3 +7,5 @@ export const store = configureStore({
     }
 })
 
+export * from './thunks/fetchUsers';
+// Takes al anmed exports from fetchUsers and makes them available for import from this file
