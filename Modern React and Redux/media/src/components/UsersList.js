@@ -30,7 +30,8 @@ function UsersList(){
         </div>
     })
 
-    return <div>{data.length}</div>;
+    return <div>{renderedUsers}</div>;
 }
 
 export default UsersList;
+//gjgjhgjh
