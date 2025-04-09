@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../store";
-import { Skeleton } from "./skeleton";
+import Skeleton from "./skeleton";
 
 function UsersList(){
     const dispatch = useDispatch();
@@ -14,12 +14,18 @@ function UsersList(){
     }, [dispatch])
 
     if(isLoading){
-        return <Skeleton times = {6}/>
+        return <Skeleton times = {6} className="h-10 w-full"/>
     }
 
     if(error){
         return <div>Error fetching data...</div>
     }
+
+    const renderedUsers = data.map((user) => {
+        return <div key={user.id} className="mb-2 border rounded">
+
+        </div>
+    })
 
     return <div>{data.length}</div>;
 }
