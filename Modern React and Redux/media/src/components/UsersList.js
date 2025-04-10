@@ -7,6 +7,8 @@ import Skeleton from "./skeleton";
 function UsersList(){
     const [isLoadingUsers, setIsLoadingUsers] = useState(false);
     const [loadingUsersError, setLoadingUsersError] = useState(null);
+    const [isCreatingUser, setIsCreatingUser] = useState(false);
+    const [ creatingUserError, setCreatingUserError] = useState(null);
     const dispatch = useDispatch();
     const { data } = useSelector((state) => {
         return state.users;
@@ -16,12 +18,8 @@ function UsersList(){
         setIsLoadingUsers(true);
         dispatch(fetchUsers())
             .unwrap()
-            .catch((err) => {
-                setLoadingUsersError(err);
-            })
-            .finally(() => {
-                setIsLoadingUsers(false);
-            })
+            .catch((err) => setLoadingUsersError(err))
+            .finally(() => setIsLoadingUsers(false))
     }, [dispatch])
 
     const handleUserAdd = () => {
