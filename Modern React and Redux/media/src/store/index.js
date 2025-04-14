@@ -1,11 +1,22 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { usersReducer } from "./slices/usersSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { usersReducer } from './slices/usersSlice';
+import { albumsApi } from './apis/albumsApi';
 
 export const store = configureStore({
-    reducer : {
-        users : usersReducer
-    }
-})
+  reducer: {
+    users: usersReducer,
+    [albumsApi.reducerPath]:albumsApi.reducer
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware()
+      .concat(albumsApi.middleware);
+  }
+});
+
+setupListeners(store.dispatch);
 
 export * from './thunks/fetchUsers';
-// Takes al anmed exports from fetchUsers and makes them available for import from this file
+export * from './thunks/addUser';
+export * from './thunks/removeUser';
+export { useFetchAlbumsQuery } from './apis/albumsApi';
