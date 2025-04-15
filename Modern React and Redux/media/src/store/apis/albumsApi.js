@@ -22,7 +22,9 @@ const albumsApi = createApi({
                 }
             }),
             fetchAlbums: builder.query({
-                providesTags: ['Album'],
+                providesTags: (result,error,user) => {
+                    return [{ type: 'Album', id: user.id}]
+                },
                 query:(user) => {
                     return {
                         url: '/albums',
