@@ -30,4 +30,7 @@ export { useFetchPhotosQuery, useAddPhotoMutation, useRemovePhotoMutation } from
 // Modify actions
 // Stop actions
 // Dispatch new actions
-// Why RTK Query Needs Custom Middleware
+// Why RTK Query Needs Custom Middleware?
+// RTK Query isn't just simple Redux - it needs to:
+// Track API requests (Who's asking for what data?)
+// Manage cache timing (When should data expire?)
