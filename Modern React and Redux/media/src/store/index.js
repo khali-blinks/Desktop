@@ -34,3 +34,5 @@ export { useFetchPhotosQuery, useAddPhotoMutation, useRemovePhotoMutation } from
 // RTK Query isn't just simple Redux - it needs to:
 // Track API requests (Who's asking for what data?)
 // Manage cache timing (When should data expire?)
+// Handle mutations (What should happen after a POST/DELETE?)
+// Automatically refetch data (When related data changes)
