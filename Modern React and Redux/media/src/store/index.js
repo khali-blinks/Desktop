@@ -7,8 +7,8 @@ import { photosApi } from './apis/photosApi';
 export const store = configureStore({
   reducer: {
     users: usersReducer,
-    [albumsApi.reducerPath]:albumsApi.reducer,
-    [photosApi.reducerPath]:photosApi.reducer
+    [albumsApi.reducerPath]:albumsApi.reducer,// RTK Query API slice
+    [photosApi.reducerPath]:photosApi.reducer // RTK Query API slice
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()
@@ -24,3 +24,10 @@ export * from './thunks/addUser';
 export * from './thunks/removeUser';
 export { useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation } from './apis/albumsApi';
 export { useFetchPhotosQuery, useAddPhotoMutation, useRemovePhotoMutation } from './apis/photosApi';
+
+// Middleware is like a checkpoint that every Redux action passes through before reaching the reducers. It can:
+// Inspect actions
+// Modify actions
+// Stop actions
+// Dispatch new actions
+// Why RTK Query Needs Custom Middleware
