@@ -28,3 +28,8 @@ formatCar({
   make: 'Ford',
   model: 'Mustang'
 })
+formatCar({
+  year:2015,
+  make: 'Ford',
+  model: 'Mustang'
+})
