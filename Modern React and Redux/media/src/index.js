@@ -20,4 +20,6 @@ const color: string = 'red';
 const isRed: boolean = color === 'red';
 const colors: string[] = [ 'banku','fish','tilapia'];
 
-
+function formatCar(car: {year:number, model:string, make: string}){
+  return `Year: ${car.year}, model: ${car.model}, make: ${car.make}`
+}
