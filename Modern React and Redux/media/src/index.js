@@ -36,3 +36,7 @@ interface Bike extends Wuz{
   model: string,
   
 }
+
+interface Wuz{
+  year: number
+}
