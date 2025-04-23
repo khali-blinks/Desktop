@@ -40,3 +40,9 @@ interface Bike extends Wuz{
 interface Wuz{
   year: number
 }
+
+const moto = (arg : Bike) => {
+  return `${arg.name}, ${arg.model} - ${arg.year}`
+}
+
+moto({name: "bozanga",model: 'bmx',year:12})
