@@ -30,3 +30,9 @@ formatCar({
   make: 'Ford',
   model: 'Mustang'
 })
+
+interface Bike extends Wuz{
+  name: string,
+  model: string,
+  
+}
