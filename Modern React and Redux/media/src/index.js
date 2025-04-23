@@ -23,3 +23,10 @@ const colors: string[] = [ 'banku','fish','tilapia'];
 function formatCar(car: {year:number, model:string, make: string}){
   return `Year: ${car.year}, model: ${car.model}, make: ${car.make}`
 }
+
+
+formatCar({
+  year:2015,
+  make: 'Ford',
+  model: 'Mustang'
+})
