@@ -47,20 +47,3 @@ const moto = (arg : Bike) => {
 
 moto({name: "bozanga",model: 'bmx',year:12})
 
-// Type Predicates
-// Syntax 
-function isType(value: any): value is TargetType {
-  // return true if `value` matches `TargetType`
-} 
-// The ''value is TargetType'' syntax is the type predicate.
-// If the function returns true, TypeScript treats value as TargetType in subsequent code.
-
-function isString(value: unknown): value is string {
-  return typeof value === "string";
-}
-
-const input: unknown = "hello";
-
-if (isString(input)) {
-  console.log(input.toUpperCase()); // ✅ TypeScript knows `input` is `string`
-}
