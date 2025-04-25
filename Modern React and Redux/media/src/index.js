@@ -54,3 +54,9 @@ function isType(value: any): value is TargetType {
 } 
 // The ''value is TargetType'' syntax is the type predicate.
 // If the function returns true, TypeScript treats value as TargetType in subsequent code.
+
+function isString(value: unknown): value is string {
+  return typeof value === "string";
+}
+
+const input: unknown = "hello";
