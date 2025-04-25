@@ -60,3 +60,7 @@ function isString(value: unknown): value is string {
 }
 
 const input: unknown = "hello";
+
+if (isString(input)) {
+  console.log(input.toUpperCase()); // ✅ TypeScript knows `input` is `string`
+}
