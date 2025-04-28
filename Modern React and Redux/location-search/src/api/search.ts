@@ -26,5 +26,6 @@ export const search = async (term: string) => {
             latitude: feature.geometry.coordinates[1]
         }
     })
+    return places
 
 }
