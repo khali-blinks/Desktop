@@ -18,7 +18,10 @@ export async function searchPackages(term:string): Promise<PackageSummary[]> {
     
         return data.objects.map(({ package : { name, description, version, keywords} }) => {
             return {
-                name,version,description,keywords
+                name,
+                version,
+                description,
+                keywords
             }
         })
 }
