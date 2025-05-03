@@ -21,7 +21,7 @@ export async function searchPackages(term:string): Promise<PackageSummary[]> {
                 name,
                 version,
                 description,
-                keywords
+                keywords,
             }
         })
 }
