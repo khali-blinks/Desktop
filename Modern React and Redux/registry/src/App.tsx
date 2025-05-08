@@ -36,4 +36,5 @@ function App() {
 }
 
 export default App
+//Solaried theme.
 //Solaried theme
